@@ -83,6 +83,7 @@
           
             font-family: "Noto Kufi Arabic", sans-serif;
             font-weight: bold;
+            font-size: larger;
         }
 
         label {
@@ -96,8 +97,8 @@
         .submitOrder {
             position: fixed;
             bottom: 0px;
-            /* left: 50%;
-            transform: translateX(-50%); */
+             left: 50%;
+            transform: translateX(-50%); 
             text-align: center;
             width: 100%;
             z-index: 10;
@@ -148,11 +149,43 @@
             margin-bottom: 10px;
             border-radius: 8px;
         }
+        .loading {
+    display: none;
+    position: fixed; /* Ensure it stays in the center even if the page scrolls */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-size: 18px;
+    color: #5e12d8;
+    background-color: #fff; /* Optional: Add a background color */
+    border: 1px solid #5e12d8; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+     }
+     .loading h3{
+            text-align: center;
+            font-family: "Noto Kufi Arabic", sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+     }
 
         @media (max-width: 600px) {
             .moreordresimages img {
                 width: 100%;
             }
+            .loading {
+         padding: 5px;
+        
+
+
+     }
+     .loading h3{
+            text-align: center;
+            font-family: "Noto Kufi Arabic", sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+     }
         }
 
         .productdescription{
@@ -191,20 +224,33 @@
         <div class="productSelected">
             <h1>DELL Lattitude 55000</h1>
             <hr>
-            <form class="cf">
+            <form id="product-form" action="" method="post" class="cf">
                 <div class="half left cf">
                     <label for="input-name">الاسم</label>
-                    <input type="text" id="input-name" placeholder="الاسم">
+                    <input name="name" type="text" id="input-name" placeholder="الاسم" required>
                 </div>
                 <div class="half right cf">
-                    <label for="input-email">رقم الهاتف</label>
-                    <input type="email" id="input-email" placeholder="رقم الهاتف">
+                    <label for="input-phone">رقم الهاتف</label>
+                    <input name="phone" type="text" id="input-phone" placeholder="رقم الهاتف" required>
                 </div>
                 <div class="half cf">
-                    <label for="input-subject">العنوان الكامل والمدينة</label>
-                    <input type="text" id="input-subject" placeholder="العنوان الكامل والمدينة">
+                    <label for="input-address">العنوان الكامل والمدينة</label>
+                    <input name="address" type="text" id="input-address" placeholder="العنوان الكامل والمدينة">
                 </div>
+                <div class="half cf">
+                    <label for="input-units">عدد الوحدات </label>
+                    <input name="nbr-units" type="number" id="input-units" placeholder="عدد الوحدات " value="1">
+                </div>
+                <div class="submitOrder">
+                    <input type="submit" value="أكمل طلبك الأن" id="submit">
+                </div>
+
             </form>
+            <div class="loading" id="loading">
+                <img src="../img/Spinner@1x-0.4s-200px-200px.gif" alt="" srcset="">
+                <h3>جاري الإرسال </h3>
+            </div>
+
         </div>
         <div class="moreOrders">
             <div class="titlemoreOrders">
@@ -221,9 +267,75 @@
         </div>
     </div>
 
-    <div class="submitOrder">
-        <input type="submit" value="أكمل طلبك الأن" id="input-submit">
-    </div>
+   
+
+    <script>
+    
+            const form = document.getElementById('product-form');
+
+            // // Reset custom validity
+            // form.querySelectorAll('input').forEach(input => {
+            //     input.setCustomValidity('');
+            // });
+
+            // let valid = true;
+
+            // // Custom validation for each field
+            // const nameInput = document.getElementById('input-name');
+            // if (!nameInput.value) {
+            //     nameInput.setCustomValidity('يرجى إدخال اسمك');
+            //     valid = false;
+            // }
+
+            // const phoneInput = document.getElementById('input-phone');
+            // if (!phoneInput.value) {
+            //     phoneInput.setCustomValidity('يرجى إدخال رقم هاتفك');
+            //     valid = false;
+            // }
+
+            // if (valid) {
+            //     form.submit();
+              
+            // } else {
+            //     form.reportValidity();
+            // }
+            // scriptURL = "https://script.google.com/macros/s/AKfycbzwQAuXkQIE5zyh-t6Ln_8oTwFdUjKygBRqLFG-_8NvAbc7dCcspkk_4yr2OvuKJSYD/exec"
+            // form.addEventListener('submit',e =>{
+            //     e.preventDefault()
+            //     fetch(scriptURL , {method : 'POST' , body: new FormData(form)})
+            //     .then(response => window.location.href('../thankspage/thankspage.php'))
+            //     .then(()=>{window.location.reload()})
+            //     .catch(error => console.error ('Error!',error.message))
+            // }) 
+            document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('product-form');
+            const loading = document.getElementById('loading');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+
+                // Show the loading indicator
+                loading.style.display = 'block';
+
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzwQAuXkQIE5zyh-t6Ln_8oTwFdUjKygBRqLFG-_8NvAbc7dCcspkk_4yr2OvuKJSYD/exec";
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.href = '../thankspage/thankspage.php';
+                        } else {
+                            console.error('Response not OK', response);
+                            loading.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        loading.style.display = 'none';
+                    });
+            });
+        });
+    </script>
+
 
 </body>
+
 </html>

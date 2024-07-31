@@ -40,6 +40,10 @@
     margin-bottom: 80px;
     border-radius: 20px;
   }
+  .card:hover{
+    border: 2px solid #6835b9;
+    border-radius: 10px;
+  }
   .card h1 {
       padding-bottom: 20px;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
