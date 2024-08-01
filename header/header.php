@@ -35,6 +35,7 @@
             padding: 1.3rem;
             display: flex;
             justify-content: space-between;
+            align-items:center;
             position: fixed;
             top: 50px; /* Default top position */
             width: 100%;
@@ -49,7 +50,7 @@
         .logo {
             color: white;
             align-self: center;
-            margin-left: 1.2rem;
+            margin-left: 3rem;
             font-size: 2.5rem;
         }
 
@@ -84,14 +85,17 @@
             background-color: #5e12d8;
             height: 60px;
             padding-top: 20px;
-            font-size: 16px;
+            font-size: 10px;
             font-family: "Noto Kufi Arabic", sans-serif;
+            word-spacing:5px
         }
 
         @media screen and (max-width: 700px) {
             .centered-text {
                 height: 40px;
                 padding-top: 5px;
+                font-weight: lighter;
+                font-size : 8px;
             }
             .nav-bar {
                 display: none;

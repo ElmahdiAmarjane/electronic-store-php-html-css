@@ -89,5 +89,7 @@
         <br>
         <a href="/mahal/index.php" class="back-home">العودة إلى الصفحة الرئيسية</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="./thankspage.js"></script>
 </body>
 </html>

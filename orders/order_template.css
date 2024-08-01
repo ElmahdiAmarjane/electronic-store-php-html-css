@@ -1,0 +1,209 @@
+.allproductSelected {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  padding: 0 10px;
+  direction: rtl;
+}
+
+.productImage,
+.productSelected {
+  width: 100%;
+  max-width: 800px;
+  margin: 10px;
+  height: max-content;
+}
+
+.productImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.productImage img {
+  width: 100%;
+  width: 80%;
+  height: 500px;
+  border-radius: 8px;
+}
+
+.productSelected {
+  border: 2px solid #5223c2;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f94f;
+  padding: 20px;
+  height: max-content;
+}
+
+.productSelected h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cf {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.cf .half {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.cf .left,
+.cf .right {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .cf .left,
+  .cf .right {
+    width: calc(50% - 10px);
+  }
+
+  .cf .right {
+    margin-right: 20px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #5223c2;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+}
+
+.submitOrder {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+  background-color: aliceblue;
+  padding-top: 10px;
+}
+
+.submitOrder input[type="submit"] {
+  background: #5e12d8;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  animation: vibrate 0.2s infinite;
+}
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.submitOrder input[type="submit"]:hover {
+  background: #4a0da1;
+}
+.moreOrders {
+  margin-top: 100px;
+}
+.titlemoreOrders h1 {
+  text-align: center;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+}
+.moreordresimages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.moreordresimages img {
+  width: calc(50% - 10px);
+  border-radius: 8px;
+}
+.loading {
+  display: none;
+  position: fixed; /* Ensure it stays in the center even if the page scrolls */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  font-size: 18px;
+  color: #5e12d8;
+  background-color: #fff; /* Optional: Add a background color */
+  border: 1px solid #5e12d8; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+.loading h3 {
+  text-align: center;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+.productdescription {
+  direction: ltr;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+@media (max-width: 600px) {
+  .moreordresimages img {
+    width: 100%;
+  }
+  .loading {
+    padding: 5px;
+  }
+  .productImage img {
+    width: 100%;
+    width: 60%;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .productImage {
+    margin-top: 20px;
+  }
+  .loading h3 {
+    text-align: center;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .productdescription {
+    direction: ltr;
+    text-align: center;
+    font-weight: 300;
+    font-size: 15px;
+  }
+}
