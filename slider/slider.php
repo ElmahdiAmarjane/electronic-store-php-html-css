@@ -117,7 +117,7 @@
             border-radius : 20px;
 		}
         .slide-container {
-    margin: 20px auto; /* Center horizontally and add top margin */
+    margin: 100px auto 0; /* Center horizontally and add top margin */
     position: relative;
     width: 96%;
     height: 300px;

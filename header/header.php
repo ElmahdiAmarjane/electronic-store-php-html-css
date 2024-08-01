@@ -11,8 +11,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -27,18 +27,23 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin-top: 70px; /* Adjust this value to match the height of the header */
+            /* margin-top: 70px; Adjust this value to match the height of the header */
         }
 
-        .page-header {
+        .page-header-nav {
             background-color: var(--bgcolor);
             padding: 1.3rem;
             display: flex;
             justify-content: space-between;
             position: fixed;
-            top: 0;
+            top: 50px; /* Default top position */
             width: 100%;
             z-index: 100;
+            transition: top 0.3s; /* Smooth transition */
+        }
+
+        .page-header-nav.sticky {
+            top: 0; /* Top position when scrolled */
         }
 
         .logo {
@@ -47,10 +52,6 @@
             margin-left: 1.2rem;
             font-size: 2.5rem;
         }
-
-        /* .nav-bar {
-            margin: auto;
-        } */
 
         .nav-bar a {
             color: white;
@@ -90,8 +91,8 @@
         @media screen and (max-width: 700px) {
             .centered-text {
                 height: 40px;
-                padding-top: 10px;
-        }
+                padding-top: 5px;
+            }
             .nav-bar {
                 display: none;
                 position: absolute;
@@ -122,34 +123,50 @@
             .logo {
                 font-size: 1.4rem;
             }
+            .page-header-nav {
+            top: 42px; /* Default top position */
+           
+        }
         }
     </style>
 </head>
 <body>
     <div class="page-header">
-        <div class="logo">
-            <img src="/mahal/img/samsunglogo.png" alt="" width="120px">
+        <div class="centered-text">
+            <h3> خدمة العملاء دائما في خدمتكم على رقمنا الهاتفي : 0655443322
+            التوصيل بالمجان إلى جميع مدن المملكة </h3>
         </div>
-        <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <div id="navigation-bar" class="nav-bar">
-            <a href="/mahal/index.php" class="active">الصفحة الرئيسية</a>
-            <a href="/mahal/contactus/contactus.php">اتصل بنا</a>
-            <a href="">التصنيفات</a>
-            <a href="">من نحن</a>
+        <div class="page-header-nav">
+            <div class="logo">
+                <img src="/mahal/img/samsunglogo.png" alt="" width="120px">
+            </div>
+            <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div id="navigation-bar" class="nav-bar">
+                <a href="/mahal/index.php" class="active">الصفحة الرئيسية</a>
+                <a href="/mahal/contactus/contactus.php">اتصل بنا</a>
+                <a href="">التصنيفات</a>
+                <a href="">من نحن</a>
+            </div>
         </div>
     </div>
-    <div class="centered-text">
-        <h3>06 55 44 33 22 : اتصل بنا</h3>
-    </div>
+
     <script>
         function onMenuClick() {
             var navbar = document.getElementById("navigation-bar");
             var responsive_class_name = "responsive";
-
             navbar.classList.toggle(responsive_class_name);
         }
+
+        window.addEventListener('scroll', function() {
+            var headerNav = document.querySelector('.page-header-nav');
+            if (window.scrollY > 50) {
+                headerNav.classList.add('sticky');
+            } else {
+                headerNav.classList.remove('sticky');
+            }
+        });
     </script>
 </body>
 </html>
