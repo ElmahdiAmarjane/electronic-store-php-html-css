@@ -31,7 +31,7 @@
         <div class="productSelected">
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
             <hr>
-            <form id="product-form" action="" method="post" class="cf">
+            <form id="product-form" action="./createOrderWoo.php" method="post" class="cf">
                 <div class="half left cf">
                     <label for="input-name">الاسم</label>
                     <input name="name" type="text" id="input-name" placeholder="الاسم" required>
@@ -49,7 +49,8 @@
                     <input name="nbr-units" type="number" id="input-units" placeholder="عدد الوحدات " value="1">
                 </div>
                 <div class="submitOrder">
-                    <input type="submit" value="أكمل طلبك الأن" id="submit">
+                    <input name="productId" type="hidden" value="<?php echo $productId  ?>">
+                    <input name="submit" type="submit" value="أكمل طلبك الأن" id="submit">
                 </div>
             </form>
             <div class="loading" id="loading" style="display: none;">
@@ -72,7 +73,6 @@
     </div>
 
     <script>
-    const form = document.getElementById('product-form');
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('product-form');
         const loading = document.getElementById('loading');
@@ -83,25 +83,49 @@
             // Show the loading indicator
             loading.style.display = 'block';
 
-            const scriptURL =
-                "https://script.google.com/macros/s/AKfycbzwQAuXkQIE5zyh-t6Ln_8oTwFdUjKygBRqLFG-_8NvAbc7dCcspkk_4yr2OvuKJSYD/exec";
-            fetch(scriptURL, {
+
+            // Send a POST request with the JSON data
+            fetch('./createOrderWoo.php', {
                     method: 'POST',
-                    body: new FormData(form)
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data) // Convert the JSON object to a JSON string
                 })
                 .then(response => {
-                    if (response.ok) {
-                        loading.style.display = 'none';
-                        window.location.href = '../thankspage/thankspage.php';
-                    } else {
-                        console.error('Response not OK', response);
-                        loading.style.display = 'none';
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
+                    return response.json();
+                })
+                .then(result => {
+                    console.log('Success:', result);
+                    // Handle successful response here (e.g., show a success message)
                 })
                 .catch(error => {
-                    console.error('Error!', error.message);
-                    loading.style.display = 'none';
+                    console.error('Error:', error);
+                    // Handle error response here (e.g., show an error message)
                 });
+            // const scriptURL =
+            //     "https://script.google.com/macros/s/AKfycbyVVjcTC_LEKgs8A7j6qOV_hOKKrpXY18S0aYsehZPqCdOZbXzQ9xOQLExfajGWXMzgBg/exec";
+            // fetch(scriptURL, {
+            //         method: 'POST',
+            //         body: new FormData(form)
+            //     })
+            //     .then(response => {
+            //         if (response.ok) {
+            //             loading.style.display = 'none';
+            //             // window.location.href = '../thankspage/thankspage.php';
+            //         } else {
+            //             console.error('Response not OK', response);
+            //             loading.style.display = 'none';
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error('Error!', error.message);
+            //         loading.style.display = 'none';
+            //     });
+
         });
     });
     </script>
