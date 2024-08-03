@@ -83,7 +83,17 @@
             // Show the loading indicator
             loading.style.display = 'block';
 
+            // Create a FormData object from the form
+            const formData = new FormData(form);
 
+            // Convert FormData to a JSON object
+            const data = {
+                name: formData.get('name'),
+                address: formData.get('address'),
+                phone: formData.get('phone'),
+                nbrUnits: formData.get('nbr-units'),
+                productId: formData.get('productId'),
+            };
             // Send a POST request with the JSON data
             fetch('./createOrderWoo.php', {
                     method: 'POST',
@@ -106,26 +116,26 @@
                     console.error('Error:', error);
                     // Handle error response here (e.g., show an error message)
                 });
-            // const scriptURL =
-            //     "https://script.google.com/macros/s/AKfycbyVVjcTC_LEKgs8A7j6qOV_hOKKrpXY18S0aYsehZPqCdOZbXzQ9xOQLExfajGWXMzgBg/exec";
-            // fetch(scriptURL, {
-            //         method: 'POST',
-            //         body: new FormData(form)
-            //     })
-            //     .then(response => {
-            //         if (response.ok) {
-            //             loading.style.display = 'none';
-            //             // window.location.href = '../thankspage/thankspage.php';
-            //         } else {
-            //             console.error('Response not OK', response);
-            //             loading.style.display = 'none';
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.error('Error!', error.message);
-            //         loading.style.display = 'none';
-            //     });
 
+            const scriptURL =
+                "https://script.google.com/macros/s/AKfycbyVVjcTC_LEKgs8A7j6qOV_hOKKrpXY18S0aYsehZPqCdOZbXzQ9xOQLExfajGWXMzgBg/exec";
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        loading.style.display = 'none';
+                        window.location.href = '../thankspage/thankspage.php';
+                    } else {
+                        console.error('Response not OK', response);
+                        loading.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    loading.style.display = 'none';
+                });
         });
     });
     </script>

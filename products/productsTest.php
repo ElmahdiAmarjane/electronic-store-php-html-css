@@ -21,7 +21,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./products.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@ try {
 
 .card {
     width: 320px;
-    height: 600px;
+    height: 500px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 400px;
     margin: auto;
@@ -59,16 +59,14 @@ try {
     font-family: arial;
     border: 1px solid #6835b9;
     padding: 30px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     border-radius: 20px;
 
 }
 
 .card img {
-    width: 200px;
+    width: 100%;
     height: 200px;
-    max-height: 200px;
-
 }
 
 .card:hover {
@@ -79,6 +77,7 @@ try {
 .card h1 {
     padding-bottom: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px
 }
 
 .price {
@@ -117,12 +116,17 @@ try {
 
 .divproductimg {
     width: 100%;
-    height: 300px;
+    height: max-content;
     display: flex;
     justify-content: center;
     /* Center horizontally */
     align-items: center;
-    /* background-color : green; */
+    background-color: green;
+    overflow: hidden;
+}
+
+.divproductimg:hover {
+    overflow: visible;
 }
 
 .divproductprice {

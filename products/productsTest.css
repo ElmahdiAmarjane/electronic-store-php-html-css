@@ -1,0 +1,92 @@
+.allproducts {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 50px auto;
+}
+
+.titleAllProducts {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.titleAllProducts h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #6835b9;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Zoom effect */
+}
+
+.card h1 {
+  font-size: 1.5rem;
+  padding: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.price {
+  color: #1d9605;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-top: 10px;
+}
+
+.oldPrice {
+  color: #5a5656;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-top: 5px;
+  text-decoration: line-through;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #5e12d8;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  border-radius: 0 0 15px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #4a0ca6;
+}
+
+@media screen and (max-width: 700px) {
+  .titleAllProducts {
+      margin-top: 20px;
+  }
+}
