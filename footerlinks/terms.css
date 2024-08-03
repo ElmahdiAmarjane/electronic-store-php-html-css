@@ -1,0 +1,24 @@
+
+
+.termscontainer h1,
+.termscontainer h2 {
+    color: #541ac1;
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.termscontainer {
+    width: 80%;
+    margin: 100px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+    text-align: justify;
+}
+
+.termscontainer p {
+    margin-bottom: 15px;
+    font-family: "Noto Kufi Arabic", sans-serif;
+   
+}

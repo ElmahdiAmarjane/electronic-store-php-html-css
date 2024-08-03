@@ -1,0 +1,34 @@
+
+
+.replacementcontainer h1 {
+    color: #5b17b9;
+}
+
+.replacementcontainer {
+    width: 80%;
+    margin: 100px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+    color: #541ac1;
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.replacementcontainer ul {
+    margin-bottom: 15px;
+}
+
+.replacementcontainer ul li {
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+@media screen and (max-width: 700px) {
+    .replacementcontainer h1 {
+        font-size: 1em;
+        margin: 10px;
+    }
+        
+}

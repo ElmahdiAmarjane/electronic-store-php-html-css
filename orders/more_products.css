@@ -1,0 +1,43 @@
+.otherProductImages {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Creates space around the items */
+}
+
+.productRow {
+    width: 100%; /* Full width for the row */
+    display: flex;
+    justify-content: space-around; /* Create space around the products */
+    margin-bottom: 20px; /* Add space between rows */
+}
+
+.product {
+    width: 30%; /* Each product div takes 40% of the row width */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centers the text within the product div */
+    margin: 10px; /* Add some space around the product div */
+}
+.product:hover {
+  
+   box-shadow: 1px 1px 10px 5px #a4a1a1;
+}
+
+.product .img {
+    width: 100%; /* Image div takes 100% of the product div width */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+}
+
+.product .img img {
+    width: 100%; /* Image takes 100% of the img div width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.product h1 {
+    margin: 10px 0; /* Add some space around the title */
+    font-size: 1.2em; /* Adjust the font size as needed */
+}

@@ -19,19 +19,18 @@
             <img src="<?php echo htmlspecialchars($imageSrc); ?>"
                 alt="<?php echo htmlspecialchars($product['name']); ?>">
             <div class="productdescription">
-                <p>Product id : <?php echo $productId; ?></p>
+                <p>⭐⭐⭐⭐⭐</p>
                 <p><?php echo htmlspecialchars($product['name']); ?></p>
-                <p> OS: Windows 11 Professionnel</p>
-                <p>Carte vidéo: Carte graphique Intel® Arc™ A370M</p>
-                <p>Mémoire: 16 Go de mémoire DDR5</p>
-                <p>Stockage: Disque SSD M.2 PCIe NVMe de 1 To</p>
-                <p>Écran: Écran 15.6" Full HD+ (1920X1200)</p>
+                <p><?php echo htmlspecialchars(strip_tags($product['description'])); ?></p>
+
+
+
             </div>
         </div>
         <div class="productSelected">
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
             <hr>
-            <form id="product-form" action="./createOrderWoo.php" method="post" class="cf">
+            <form id=" product-form" action="./createOrderWoo.php" method="post" class="cf">
                 <div class="half left cf">
                     <label for="input-name">الاسم</label>
                     <input name="name" type="text" id="input-name" placeholder="الاسم" required>
@@ -58,17 +57,24 @@
                 <h3>جاري الإرسال </h3>
             </div>
         </div>
+        <div class="moreImages">
+            <div class="titlemoreImages">
+                <h1> صور اخرى لنفس المنتج</h1>
+            </div>
+            <div class="moreProductImages">
+                <?php foreach ($product['images'] as $image): ?>
+                <div class="img">
+                    <img src="<?php echo htmlspecialchars($image['src']); ?>" alt="" srcset="">
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
         <div class="moreOrders">
             <div class="titlemoreOrders">
                 <h1>المزيد من المنتجات ذات صلة </h1>
             </div>
-            <div class="moreordresimages">
-                <img src="/mahal/img/p1.jpg" alt="" srcset="" width="600px">
-                <br>
-                <img src="/mahal/img/p2.jpg" alt="" srcset="" width="600px">
-                <br>
-                <img src="/mahal/img/p3.jpg" alt="" srcset="" width="600px">
-            </div>
+            <?php include './more_products.php'?>
         </div>
     </div>
 

@@ -47,21 +47,22 @@ try {
     font-family: "Noto Kufi Arabic", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    margin-bottom: 20px;
 }
 
 .card {
     width: 320px;
-    height: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 520px;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5);
     max-width: 400px;
     margin: auto;
     text-align: center;
     font-family: arial;
-    border: 1px solid #6835b9;
+    /* border: 1px solid #6835b9; */
     padding: 30px;
     margin-bottom: 40px;
     border-radius: 20px;
-
+    transition: 1s;
 }
 
 .card img {
@@ -70,14 +71,16 @@ try {
 }
 
 .card:hover {
-    border: 2px solid #6835b9;
+    border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    transform: scale(1.01)
 }
 
 .card h1 {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px
+    font-size: 20px;
+
 }
 
 .price {
@@ -99,6 +102,7 @@ try {
 
 .card img:hover {
     transform: scale(1.2);
+    transition: 1s;
     /* Zoom in by 20% */
 }
 
@@ -121,7 +125,7 @@ try {
     justify-content: center;
     /* Center horizontally */
     align-items: center;
-    background-color: green;
+    /*background-color: green;*/
     overflow: hidden;
 }
 
@@ -203,6 +207,7 @@ try {
                 <img src="<?php echo htmlspecialchars($imageSrc); ?>"
                     alt="<?php echo htmlspecialchars($product->name); ?>">
             </div>
+            <p class="stars">⭐⭐⭐⭐⭐ </p>
             <div class="divproductprice">
                 <p class="oldPrice">
                     <?php echo !empty($product->regular_price) ? htmlspecialchars($product->regular_price) . ' DH' : ''; ?>
@@ -210,6 +215,7 @@ try {
                 <p class="price">
                     <?php echo !empty($product->sale_price) ? htmlspecialchars($product->sale_price) . ' DH' : 'Price Not Available'; ?>
                 </p>
+
             </div>
 
             <form action="/mahal/orders/order.php" method="get">

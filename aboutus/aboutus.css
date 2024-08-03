@@ -1,0 +1,78 @@
+
+
+.aboutuscontainer {
+    max-width: 900px;
+    margin: 200px auto 50px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e5e8;
+    text-align: center;
+}
+
+.aboutuscontainer h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.aboutuscontainer p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.aboutuscontainer p:last-child {
+    margin-bottom: 0;
+}
+
+.aboutuscontainer::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 0 auto 20px;
+    border-radius: 3px;
+}
+.imgstore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.imgstore img{
+    width: 80%;
+}
+.imgstore h3{
+    text-align: center;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+    .aboutuscontainer {
+        padding: 20px;
+        margin: 100px auto 50px;
+    }
+
+    .aboutuscontainer h1 {
+        font-size: 2em;
+    }
+
+    .aboutuscontainer p {
+        font-size: 1em;
+    }
+    .imgstore{
+        width: 90%;
+    }
+    .imgstore img{
+        width: 100%;
+    }
+}

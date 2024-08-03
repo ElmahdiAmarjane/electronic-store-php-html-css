@@ -1,0 +1,30 @@
+.paymentcontainer h1 {
+  color: #501dc5;
+  text-align: center;
+}
+
+.paymentcontainer {
+  width: 80%;
+  margin: 200px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  
+}
+
+.paymentcontainer h2 {
+  color: #501dc5;
+  margin-top: 20px;
+}
+.paymentcontainer h3 span {
+  color: #b444ec;
+  font-weight: bolder;
+}
+
+.paymentcontainer h3 {
+  margin-bottom: 15px;
+  text-align: justify;
+}

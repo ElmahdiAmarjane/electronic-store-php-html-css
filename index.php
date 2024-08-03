@@ -3,7 +3,7 @@
 
 include "header/header.php";
 
-include "slider/slider.php";
+include "slider/sliderTest.php";
 
 include "products/productsTest.php";
 

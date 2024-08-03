@@ -134,9 +134,16 @@ label {
   background: #4a0da1;
 }
 .moreOrders {
+  width: 100%;
   margin-top: 100px;
 }
-.titlemoreOrders h1 {
+.moreImages {
+  margin-top: 50px;
+  text-align: center;
+ 
+}
+.titlemoreOrders h1,
+.titlemoreImages h1 {
   text-align: center;
   font-family: "Noto Kufi Arabic", sans-serif;
   font-weight: bold;
@@ -146,6 +153,27 @@ label {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 0;
+}
+.moreProductImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.moreProductImages .img {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moreProductImages .img img {
+  width: 100%;
+  margin-top: 10px;
+  transition: 1s;
+  
+}
+.moreProductImages .img img:hover {
+  transform: scale(1.2);
+  
 }
 
 .moreordresimages img {
@@ -175,7 +203,7 @@ label {
 .productdescription {
   direction: ltr;
   text-align: center;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
 }
 @media (max-width: 600px) {

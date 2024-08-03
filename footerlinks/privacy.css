@@ -1,0 +1,22 @@
+
+
+.privacycontainer h1 {
+    color: #501dc5;
+    text-align: center;
+}
+.privacycontainer {
+    width: 80%;
+    margin: 100px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    direction: rtl;
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.privacycontainer p {
+    margin-bottom: 10px;
+    color: #000000;
+    text-align: justify;
+}
