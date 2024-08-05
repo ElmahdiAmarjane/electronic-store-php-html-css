@@ -30,7 +30,7 @@
         <div class="productSelected">
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
             <hr>
-            <form id=" product-form" action="./createOrderWoo.php" method="post" class="cf">
+            <form id="product-form" action="" method="post" class="cf">
                 <div class="half left cf">
                     <label for="input-name">الاسم</label>
                     <input name="name" type="text" id="input-name" placeholder="الاسم" required>
@@ -49,7 +49,8 @@
                 </div>
                 <div class="submitOrder">
                     <input name="productId" type="hidden" value="<?php echo $productId  ?>">
-                    <input name="submit" type="submit" value="أكمل طلبك الأن" id="submit">
+                    <input name="productTitle" type="hidden" value="<?php echo $product['name']?>">
+                    <input name=" submit" type="submit" value="أكمل طلبك الأن" id="submit">
                 </div>
             </form>
             <div class="loading" id="loading" style="display: none;">
@@ -63,7 +64,7 @@
             </div>
             <div class="moreProductImages">
                 <?php foreach ($product['images'] as $image): ?>
-                <div class="img">
+                <div class=" img">
                     <img src="<?php echo htmlspecialchars($image['src']); ?>" alt="" srcset="">
                 </div>
                 <?php endforeach; ?>

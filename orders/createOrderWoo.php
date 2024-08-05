@@ -75,7 +75,7 @@ $json = file_get_contents('php://input');
 // Decode the JSON data
 $data = json_decode($json, true);
 
-if (isset($data['name']) && isset($data['phone']) && isset($data['address']) && isset($data['nbrUnits']) && isset($data['productId'])) {
+if (isset($data['name']) && isset($data['phone']) && isset($data['address'])) {
     // Start output buffering
     ob_start();
 
