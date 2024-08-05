@@ -21,18 +21,24 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./products.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <style>
+body {
+    background-color: #FFF9ED;
+}
+
 .allproducts {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
     margin: auto;
+    background-color: #FFF9ED;
+
 }
 
 .titleAllProducts {
@@ -47,43 +53,53 @@ try {
     font-family: "Noto Kufi Arabic", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    margin-bottom: 20px;
 }
 
 .card {
-    width: 320px;
+    width: 350px;
     height: 600px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5); */
+    /* max-width: 400px; */
     margin: auto;
     text-align: center;
     font-family: arial;
-    border: 1px solid #6835b9;
-    padding: 30px;
-    margin-bottom: 80px;
+    padding: 10px;
+    margin-bottom: 40px;
     border-radius: 20px;
-
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.card img {
-    width: 200px;
-    height: 200px;
-    max-height: 200px;
-
+.card .divproductimg img {
+    width: 90%;
+    height: 90%;
+    transform: scale(0.8)
 }
 
 .card:hover {
-    border: 2px solid #6835b9;
-    border-radius: 10px;
+    /* border: 2px solid rgba(0, 0, 0, 0.5); */
+    /* border-radius: 10px; */
+    transform: scale(1.01)
 }
 
 .card h1 {
-    padding-bottom: 20px;
+    /* padding-bottom: 10px; */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+
+}
+
+.card form {
+    width: 80%;
 }
 
 .price {
     color: #1d9605;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-top: 15px;
@@ -91,7 +107,7 @@ try {
 
 .oldPrice {
     color: #5a5656;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-top: 15px;
@@ -99,7 +115,8 @@ try {
 }
 
 .card img:hover {
-    transform: scale(1.2);
+    transform: scale(0.9);
+    transition: 1s;
     /* Zoom in by 20% */
 }
 
@@ -108,21 +125,30 @@ try {
 }
 
 .divproductname {
-    width: 100%;
-    height: 100px;
+    width: 80%;
     overflow: hidden;
+    padding: 10px 0;
+    height: 60px;
     /* background-color : red; */
 
 }
 
 .divproductimg {
     width: 100%;
-    height: 300px;
+    max-height: 300px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     /* Center horizontally */
     align-items: center;
-    /* background-color : green; */
+    /*background-color: green;*/
+    border: 5px solid #6EACDA;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.divproductimg:hover {
+    overflow: visible;
 }
 
 .divproductprice {
@@ -136,13 +162,14 @@ try {
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #5e12d8;
+    background-color: #6EACDA;
     text-align: center;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     font-size: 18px;
     margin-top: 0px;
     font-family: "Noto Kufi Arabic", sans-serif;
+
 }
 
 @media screen and (max-width: 700px) {
@@ -152,32 +179,6 @@ try {
     }
 }
 </style>
-<!-- <body>
-
-
-     
-    <div class="titleAllProducts">
-        <h2>جميع المنتجات</h2>
-   </div>
-    <div class="allproducts">
-
-
-    <div class="card">
-        <h1>DELL Latitude 5500</h1>
-        <img src="/mahal/img/dell3.png" alt="Denim Jeans" width="300px" >
-  
-        <p>I5 11gen SSD 220 </p>
-         <p class="oldPrice">4500 DH</p>
-         <p class="price">4500 DH</p>
-        <form action="/mahal/orders/order.php" method="get">
-            <input type="hidden" name="id" value="12345">
-            <button type="submit">اطلب الآن</button>
-        </form>
-    </div>
-
-
-    </div>
-</body> -->
 
 <body>
     <div class="titleAllProducts">
@@ -187,18 +188,21 @@ try {
         <?php if (!empty($products)): ?>
         <?php foreach ($products as $product): ?>
         <div class="card">
-            <div class="divproductname">
-                <h1><?php echo htmlspecialchars($product->name); ?></h1>
-            </div>
 
             <?php
                         // Use the first image if available
                         $imageSrc = !empty($product->images) ? $product->images[0]->src : '';
                     ?>
             <div class="divproductimg">
-                <img src="<?php echo htmlspecialchars($imageSrc); ?>"
+                <img src="<?php echo htmlspecialchars($imageSrc);?>"
                     alt="<?php echo htmlspecialchars($product->name); ?>">
             </div>
+
+            <div class="divproductname">
+                <h1><?php echo htmlspecialchars($product->name); ?></h1>
+            </div>
+
+            <p class="stars">⭐⭐⭐⭐⭐ </p>
             <div class="divproductprice">
                 <p class="oldPrice">
                     <?php echo !empty($product->regular_price) ? htmlspecialchars($product->regular_price) . ' DH' : ''; ?>
@@ -206,6 +210,7 @@ try {
                 <p class="price">
                     <?php echo !empty($product->sale_price) ? htmlspecialchars($product->sale_price) . ' DH' : 'Price Not Available'; ?>
                 </p>
+
             </div>
 
             <form action="/mahal/orders/order.php" method="get">

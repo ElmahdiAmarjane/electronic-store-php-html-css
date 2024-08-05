@@ -7,12 +7,11 @@
     <title>Image Slider</title>
     <style>
     .slide-container {
-        margin: 100px auto;
+        margin: 140px auto;
         position: relative;
         width: 96%;
-
         /* Add max width for better control on larger screens */
-        height: 650px;
+        height: 550px;
         border-radius: 20px;
         overflow: hidden;
     }
@@ -47,17 +46,15 @@
     }
 
     .buttons span {
-        background-color: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
         padding: 10px;
-        font-size: 16px;
+        font-size: 30px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        margin: 10px;
+        color: white
     }
 
-    .buttons span:hover {
-        background-color: rgba(255, 255, 255, 0.8);
-    }
+
 
     .dotsContainer {
         position: absolute;
@@ -78,13 +75,16 @@
     }
 
     .dotsContainer .active {
-        background-color: #5e12d8;
+        background-color: #6eacda;
     }
 
     @media screen and (max-width: 700px) {
         .slide-container {
-            margin: 100px auto;
-            height: 300px;
+            margin: 60px auto;
+            margin-bottom: 50px;
+            height: 130px;
+            width: 99%;
+            border-radius: 5px;
         }
 
         .slides img {
@@ -92,11 +92,16 @@
         }
 
         .buttons span {
-            font-size: 10px;
+            font-size: 5px;
         }
 
         .dotsContainer {
             bottom: 5px;
+        }
+
+        .dotsContainer .dot {
+            width: 8px;
+            height: 8px;
         }
     }
     </style>

@@ -14,7 +14,7 @@
 
     <style>
     :root {
-        --bgcolor: #5e12d8;
+        --bgcolor: #FFF9ED;
     }
 
     * {
@@ -30,12 +30,12 @@
 
     .page-header-nav {
         background-color: var(--bgcolor);
-        padding: 2rem;
+        padding: 3rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: fixed;
-        top: 50px;
+        top: 100px;
         /* Default top position */
         width: 100%;
         z-index: 100;
@@ -49,21 +49,32 @@
     }
 
     .logo {
+        width: 30%;
         color: white;
-        align-self: center;
-        margin-left: 10rem;
         display: flex;
         align-items: center;
+        text-align: center;
+        justify-content: center;
+        /* border: 1px solid red; */
+    }
+
+    .nav-bar {
+        width: 30%;
+        /* border: 1px solid green; */
+    }
+
+    .header-search {
+        width: 30%;
+        border: 1px solid black;
     }
 
     .nav-bar a {
-        color: white;
-        padding: 1.5rem;
+        color: #6EACDA;
+        padding: 2rem;
         cursor: pointer;
         text-decoration: none;
-        font-size: 1.2rem;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
         font-family: "Noto Kufi Arabic", sans-serif;
     }
 
@@ -73,41 +84,63 @@
         display: none;
     }
 
-    button {
-        font-size: 1rem;
-        border: 1px solid black;
-        border-radius: 5px;
-        padding: 0.9rem;
-    }
+
 
     .centered-text {
         text-align: center;
-        font-weight: bold;
+
         color: #ffffff;
-        background-color: #5e12d8;
-        height: 60px;
-        padding-top: 20px;
-        font-size: 10px;
+        background-color: #6EACDA;
+        height: 70px;
+        /* padding: 20px; */
         font-family: "Noto Kufi Arabic", sans-serif;
-        word-spacing: 5px
+        word-spacing: 5px;
+        margin-top: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+    }
+
+    .centered-text h3 {
+        font-weight: light;
+        font-size: 14px;
+    }
+
+    .header-actions-btn {
+        width: 30%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .header-actions-btn svg,
+    .header-actions-btn img {
+        width: 40px;
+        height: 40px;
     }
 
     @media screen and (max-width: 700px) {
         .centered-text {
-            height: 40px;
+            height: 50px;
             padding-top: 5px;
-            font-weight: lighter;
-            font-size: 8px;
+            margin-top: 0px;
+
+        }
+
+        .centered-text h3 {
+            font-weight: light;
+            font-size: 12px;
         }
 
         .nav-bar {
             display: none;
             position: absolute;
-            top: 3.7rem;
+            top: 5rem;
             left: 0;
             width: 100%;
             background-color: var(--bgcolor);
             text-align: center;
+
         }
 
         .nav-bar.responsive {
@@ -119,23 +152,37 @@
         }
 
         .menu-icon {
+            color: #6EACDA;
             display: block;
             z-index: 1;
+
         }
 
-        button {
-            padding: 0.4rem;
-        }
+
+
 
         .logo {
-
-            margin-left: 0.5rem;
+            border: 1px solid white;
         }
 
         .page-header-nav {
-            top: 42px;
+            top: 50px;
+            padding: 0.5rem;
+            background-color: green;
             /* Default top position */
 
+        }
+
+        .header-actions-btn img {
+            width: 25px;
+        }
+
+        .header-actions-btn {
+            border: 1px solid black;
+        }
+
+        .divmenu {
+            border: 1px solid yellow;
         }
     }
     </style>
@@ -148,12 +195,23 @@
                 التوصيل بالمجان إلى جميع مدن المملكة </h3>
         </div>
         <div class="page-header-nav">
+            <div class="header-actions-btn">
+                <img src="/mahal/img/shopping-cart.png" alt="">
+                <img src="/mahal/img/shopping-cart.png" alt="">
+
+                <!-- ############## -->
+
+            </div>
+
             <div class="logo">
                 <img src="/mahal/img/lenovologo.png" alt="" width="120px">
             </div>
-            <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
-                <i class="fa fa-bars"></i>
-            </a>
+            <div class="divmenu">
+                <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
             <div id="navigation-bar" class="nav-bar">
                 <a href="/mahal/index.php" class="active">الصفحة الرئيسية</a>
                 <a href="/mahal/contactus/contactus.php">اتصل بنا</a>
@@ -172,7 +230,7 @@
 
     window.addEventListener('scroll', function() {
         var headerNav = document.querySelector('.page-header-nav');
-        if (window.scrollY > 5) {
+        if (window.scrollY > 80) {
             headerNav.classList.add('sticky');
         } else {
             headerNav.classList.remove('sticky');

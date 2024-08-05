@@ -27,12 +27,18 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <style>
+body {
+    background-color: #FFF9ED;
+}
+
 .allproducts {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
     margin: auto;
+    background-color: #FFF9ED;
+
 }
 
 .titleAllProducts {
@@ -51,42 +57,49 @@ try {
 }
 
 .card {
-    width: 320px;
-    height: 520px;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
+    width: 350px;
+    height: 600px;
+    /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5); */
+    /* max-width: 400px; */
     margin: auto;
     text-align: center;
     font-family: arial;
-    /* border: 1px solid #6835b9; */
-    padding: 30px;
+    padding: 10px;
     margin-bottom: 40px;
     border-radius: 20px;
     transition: 1s;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.card img {
+.card .divproductimg img {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    transform: scale(0.8)
 }
 
 .card:hover {
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    /* border: 2px solid rgba(0, 0, 0, 0.5); */
+    /* border-radius: 10px; */
     transform: scale(1.01)
 }
 
 .card h1 {
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
 
 }
 
+.card form {
+    width: 80%;
+}
+
 .price {
     color: #1d9605;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-top: 15px;
@@ -94,7 +107,7 @@ try {
 
 .oldPrice {
     color: #5a5656;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-top: 15px;
@@ -102,7 +115,7 @@ try {
 }
 
 .card img:hover {
-    transform: scale(1.2);
+    transform: scale(0.9);
     transition: 1s;
     /* Zoom in by 20% */
 }
@@ -112,22 +125,26 @@ try {
 }
 
 .divproductname {
-    width: 100%;
-    height: 100px;
+    width: 80%;
     overflow: hidden;
+    padding: 10px 0;
+    height: 60px;
     /* background-color : red; */
 
 }
 
 .divproductimg {
     width: 100%;
-    height: max-content;
+    max-height: 300px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     /* Center horizontally */
     align-items: center;
     /*background-color: green;*/
-    overflow: hidden;
+    border: 5px solid #6EACDA;
+    border-radius: 40px;
+    margin-bottom: 20px;
 }
 
 .divproductimg:hover {
@@ -145,14 +162,13 @@ try {
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #5e12d8;
+    background-color: #6EACDA;
     text-align: center;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     font-size: 18px;
     margin-top: 0px;
     font-family: "Noto Kufi Arabic", sans-serif;
-
 
 }
 
@@ -161,34 +177,97 @@ try {
     .titleAllProducts {
         margin-top: 0;
     }
+
+    .allproducts {
+        width: 100%;
+        margin-top: 10px;
+        /* background-color: red; */
+    }
+
+    .titleAllProducts h2 {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .card {
+        width: 50%;
+        height: 450px;
+        margin: auto;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+
+
+
+    .card h1 {
+        /* padding-bottom: 10px; */
+        font-size: 20px;
+
+    }
+
+    .card form {
+        width: 80%;
+    }
+
+    .price {
+        font-size: 16px;
+        padding-top: 15px;
+    }
+
+    .oldPrice {
+        font-size: 14px;
+        padding-top: 10px;
+    }
+
+    .card img:hover {
+        transform: scale(0.9);
+        transition: 1s;
+        /* Zoom in by 20% */
+    }
+
+    .card button:hover {
+        opacity: 0.7;
+    }
+
+    .divproductname {
+        width: 80%;
+        overflow: scroll;
+        padding: 10px 0;
+        height: 60px;
+
+        /* background-color : red; */
+
+    }
+
+    .divproductimg {
+        max-height: 200px;
+        min-height: 200px;
+        border: 3px solid #6EACDA;
+        border-radius: 40px;
+        margin-bottom: 10px;
+    }
+
+
+
+    .divproductprice {
+        width: 100%;
+        height: 80px;
+        /* background-color: yellow; */
+
+    }
+
+    .card form button {
+        border: none;
+        outline: 0;
+        padding: 2px;
+        color: white;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 3px;
+    }
 }
 </style>
-<!-- <body>
-
-
-     
-    <div class="titleAllProducts">
-        <h2>جميع المنتجات</h2>
-   </div>
-    <div class="allproducts">
-
-
-    <div class="card">
-        <h1>DELL Latitude 5500</h1>
-        <img src="/mahal/img/dell3.png" alt="Denim Jeans" width="300px" >
-  
-        <p>I5 11gen SSD 220 </p>
-         <p class="oldPrice">4500 DH</p>
-         <p class="price">4500 DH</p>
-        <form action="/mahal/orders/order.php" method="get">
-            <input type="hidden" name="id" value="12345">
-            <button type="submit">اطلب الآن</button>
-        </form>
-    </div>
-
-
-    </div>
-</body> -->
 
 <body>
     <div class="titleAllProducts">
@@ -198,18 +277,20 @@ try {
         <?php if (!empty($products)): ?>
         <?php foreach ($products as $product): ?>
         <div class="card">
-            <div class="divproductname">
-                <h1><?php echo htmlspecialchars($product->name); ?></h1>
-            </div>
 
             <?php
                         // Use the first image if available
                         $imageSrc = !empty($product->images) ? $product->images[0]->src : '';
                     ?>
             <div class="divproductimg">
-                <img src="<?php echo htmlspecialchars($imageSrc); ?>"
+                <img src="<?php echo htmlspecialchars($imageSrc);?>"
                     alt="<?php echo htmlspecialchars($product->name); ?>">
             </div>
+
+            <div class="divproductname">
+                <h1><?php echo htmlspecialchars($product->name); ?></h1>
+            </div>
+
             <p class="stars">⭐⭐⭐⭐⭐ </p>
             <div class="divproductprice">
                 <p class="oldPrice">
