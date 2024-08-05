@@ -63,6 +63,7 @@ try {
     margin-bottom: 40px;
     border-radius: 20px;
     transition: 1s;
+
 }
 
 .card img {
@@ -151,6 +152,8 @@ try {
     font-size: 18px;
     margin-top: 0px;
     font-family: "Noto Kufi Arabic", sans-serif;
+
+
 }
 
 @media screen and (max-width: 700px) {

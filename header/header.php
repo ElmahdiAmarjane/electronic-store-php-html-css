@@ -30,7 +30,7 @@
 
     .page-header-nav {
         background-color: var(--bgcolor);
-        padding: 1.3rem;
+        padding: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
