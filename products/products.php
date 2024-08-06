@@ -75,8 +75,8 @@ body {
 }
 
 .card .divproductimg img {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     transform: scale(0.8)
 }
 
@@ -176,6 +176,95 @@ body {
 
     .titleAllProducts {
         margin-top: 0;
+    }
+
+    .allproducts {
+        width: 100%;
+        margin-top: 10px;
+        /* background-color: red; */
+    }
+
+    .titleAllProducts h2 {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .card {
+        width: 50%;
+        height: 450px;
+        margin: auto;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+
+
+
+    .card h1 {
+        /* padding-bottom: 10px; */
+        font-size: 20px;
+
+    }
+
+    .card form {
+        width: 80%;
+    }
+
+    .price {
+        font-size: 16px;
+        padding-top: 15px;
+    }
+
+    .oldPrice {
+        font-size: 14px;
+        padding-top: 10px;
+    }
+
+    .card img:hover {
+        transform: scale(0.9);
+        transition: 1s;
+        /* Zoom in by 20% */
+    }
+
+    .card button:hover {
+        opacity: 0.7;
+    }
+
+    .divproductname {
+        width: 80%;
+        overflow: scroll;
+        padding: 10px 0;
+        height: 60px;
+
+        /* background-color : red; */
+
+    }
+
+    .divproductimg {
+        max-height: 200px;
+        min-height: 200px;
+        border: 3px solid #6EACDA;
+        border-radius: 40px;
+        margin-bottom: 10px;
+    }
+
+
+
+    .divproductprice {
+        width: 100%;
+        height: 80px;
+        /* background-color: yellow; */
+
+    }
+
+    .card form button {
+        border: none;
+        outline: 0;
+        padding: 2px;
+        color: white;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 3px;
     }
 }
 </style>

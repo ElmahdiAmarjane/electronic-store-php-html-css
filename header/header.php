@@ -69,7 +69,7 @@
     }
 
     .nav-bar a {
-        color: #6EACDA;
+        color: #3398E3;
         padding: 2rem;
         cursor: pointer;
         text-decoration: none;
@@ -90,7 +90,7 @@
         text-align: center;
 
         color: #ffffff;
-        background-color: #6EACDA;
+        background-color: #3398E3;
         height: 70px;
         /* padding: 20px; */
         font-family: "Noto Kufi Arabic", sans-serif;
@@ -115,11 +115,57 @@
 
     .header-actions-btn svg,
     .header-actions-btn img {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
 
-    @media screen and (max-width: 700px) {
+    .searchbar {
+        position :fixed;
+        z-index:20;
+          background-color : #3398E3;
+          width:100%;
+          height : 60px;
+          margin-top:138px;
+          display:none;
+          align-items:center;
+          justify-content : center;
+          padding:2px;
+          
+         
+    }
+    .searchbar input{
+          background-color : white;
+          width:60%;
+          height : 90%;
+          direction:rtl;
+          font-family: "Noto Kufi Arabic", sans-serif;
+          padding-right:10px;
+          border:none;
+          outline:none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .searchbar {
+          background-color : #3398E3;
+          width:100%;
+          height : 60px;
+          margin-top:60px;
+          display:none;
+          align-items:center;
+          justify-content : center;
+          
+         
+    }
+    .searchbar input{
+          background-color : white;
+          width:90%;
+          height : 90%;
+          direction:rtl;
+          font-family: "Noto Kufi Arabic", sans-serif;
+          padding-left:10px;
+          border:none;
+          outline:none;
+    }
         .centered-text {
             height: 50px;
             padding-top: 5px;
@@ -135,54 +181,72 @@
         .nav-bar {
             display: none;
             position: absolute;
-            top: 5rem;
+            top: 3rem;
             left: 0;
             width: 100%;
             background-color: var(--bgcolor);
-            text-align: center;
+            text-align: end;
+            height:200px; 
+
 
         }
 
-        .nav-bar.responsive {
-            display: block;
+        .responsive-nav {
+            display: flex;
+            flex-direction:column;  
+           
+            
         }
-
         .nav-bar a {
+        padding: 1rem;
+       
+
+    }
+
+        .nav-bar .divmenu {
             display: block;
         }
 
         .menu-icon {
-            color: #6EACDA;
             display: block;
             z-index: 1;
-
         }
 
 
 
 
-        .logo {
-            border: 1px solid white;
-        }
+        .logo {}
 
         .page-header-nav {
             top: 50px;
             padding: 0.5rem;
-            background-color: green;
-            /* Default top position */
 
+            /* Default top position */
         }
 
         .header-actions-btn img {
-            width: 25px;
+            width: 20px;
+            height: 20px;
         }
 
-        .header-actions-btn {
-            border: 1px solid black;
-        }
+        .header-actions-btn {}
 
         .divmenu {
-            border: 1px solid yellow;
+            width: 30%;
+            justify-content: end;
+            display: flex;
+            /* align-items: flex-start; */
+            align-items: center;
+            height: 40px;
+        }
+
+        .divmenu .menu-icon {
+            height: 20px;
+        }
+
+        .divmenu .menu-icon img {
+            height: 20px;
+            width: 25px;
         }
     }
     </style>
@@ -197,19 +261,20 @@
         <div class="page-header-nav">
             <div class="header-actions-btn">
                 <img src="/mahal/img/shopping-cart.png" alt="">
-                <img src="/mahal/img/shopping-cart.png" alt="">
+                <img id ="toggleBtn" src="/mahal/img/searchicon.png" alt="">
 
                 <!-- ############## -->
 
             </div>
 
             <div class="logo">
-                <img src="/mahal/img/lenovologo.png" alt="" width="120px">
+                <img src="/mahal/img/lenovologo.png" alt="" width="100px">
             </div>
-            <div class="divmenu">
-                <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
-                    <i class="fa fa-bars"></i>
-                </a>
+            <div class="divmenu"  onclick="onMenuClick()">
+                <div id="menu-icon" class="menu-icon" >
+                    <img src="/mahal/img/open-menu.png" alt="menu">
+
+                </div>
             </div>
 
             <div id="navigation-bar" class="nav-bar">
@@ -219,23 +284,54 @@
                 <a href="/mahal/aboutus/aboutus.php">من نحن</a>
             </div>
         </div>
+        <form action="/mahal/showmore/searchproduct.php" method="GET">
+        <div class="searchbar" id="toggleDiv"> 
+            <input type="text" name="search"  placeholder="ابحث هنا عن أي منتج"/>
+        </div>
+        </form>
     </div>
 
     <script>
     function onMenuClick() {
         var navbar = document.getElementById("navigation-bar");
-        var responsive_class_name = "responsive";
+        var responsive_class_name = "responsive-nav";
         navbar.classList.toggle(responsive_class_name);
     }
 
     window.addEventListener('scroll', function() {
         var headerNav = document.querySelector('.page-header-nav');
+        const div = document.getElementById('toggleDiv');
         if (window.scrollY > 80) {
             headerNav.classList.add('sticky');
+            if(window.innerWidth > 800){
+                div.style.marginTop = '36px';
+            } else{
+                div.style.marginTop = '8px';
+            }
+           
+            
         } else {
             headerNav.classList.remove('sticky');
+            if(window.innerWidth > 800){
+                div.style.marginTop = '138px';
+            } else{
+                div.style.marginTop = '56px';
+            }
         }
+      
     });
+ 
+        function toggleDivVisibility() {
+            const div = document.getElementById('toggleDiv');
+            if (div.style.display === 'none' || div.style.display === '') {
+                div.style.display = 'flex';
+            } else {
+                div.style.display = 'none';
+            }
+        }
+
+        document.getElementById('toggleBtn').addEventListener('click', toggleDivVisibility);
+
     </script>
 </body>
 

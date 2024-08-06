@@ -111,9 +111,9 @@
 
     <div class="slide-container">
         <div class="slides">
-            <img src="/mahal/img/p1.jpg" class="active" alt="Slide 1">
-            <img src="/mahal/img/p2.jpg" alt="Slide 2">
-            <img src="/mahal/img/p3.jpg" alt="Slide 3">
+            <img src="/mahal/img/banner/la-caisse-banner.jpg" class="active" alt="Slide 1">
+            <img src="/mahal/img/banner/imp-guiensha.jpg" alt="Slide 2">
+            <img src="/mahal/img/banner/pc-bureau-banner.jpg" alt="Slide 3">
         </div>
 
         <div class="buttons">

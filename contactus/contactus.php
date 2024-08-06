@@ -15,7 +15,7 @@
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        margin-top: 80px;
+        margin-top: 140px;
         padding: 0 10px;
         direction: rtl;
     }
@@ -57,18 +57,18 @@
 
     .ourinfos h3,
     h2 {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
         font-family: "Noto Kufi Arabic", sans-serif;
     }
 
     .ourinfos p {
-        font-size: 20px;
+        font-size: 16px;
         font-family: "Noto Kufi Arabic", sans-serif;
     }
 
     .ourinfos h2 {
-        color: #5223c2
+        color: #3398E3
     }
 
 
@@ -82,41 +82,36 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: "Noto Kufi Arabic", sans-serif;
+
     }
-
-    ackg @media (max-width: 1200px) {
-
-        .cf .left,
-        .cf .right {
-            width: 100%;
-        }
-
-        .contactus {
-            width: 90%;
-        }
-
-        .cf {
-            display: block;
-            width: 100%;
-        }
+    .boxfaild{
+        background-color: #d1173f;
+        color: white;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Noto Kufi Arabic", sans-serif;
     }
 
     input,
     textarea {
         width: 100%;
-        padding: 20px;
-        border: 2px solid #5223c2;
-        ;
+        padding: 8px;
+        border: 1px solid #3398E3;
         border-radius: 4px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         box-sizing: border-box;
         font-family: "Noto Kufi Arabic", sans-serif;
-        font-weight: bold;
+        font-weight: 300;
         font-size: larger;
     }
 
     label {
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 5px;
         display: block;
         font-family: "Noto Kufi Arabic", sans-serif;
@@ -125,34 +120,93 @@
 
 
     .contactus input[type="submit"] {
-        background: #5e12d8;
+        background: #3398E3;
         border: none;
         color: white;
         cursor: pointer;
-        padding: 15px;
-        font-size: 18px;
+        padding: 10px;
+        font-size: 16px;
         border-radius: 8px;
     }
 
     .contactus input[type="submit"]:hover {
-        background: #9571eb;
+        background: #3398E4;
     }
 
 
-    .submitOrder input[type="submit"]:hover {
-        background: #4a0da1;
+     @media (max-width: 1200px) {
+        .allcontactus {
+        margin-top: 80px;
+        padding: 0 0px;
+        
     }
+        .cf .left,
+        .cf .right {
+            width: 100%;
+        }
+
+        .contactus {
+            width: 100%;
+            max-width: 100%;
+        margin: 10px 0;
+
+        border: 0px solid #5223c2;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f94f;
+        padding: 5px;
+        height: max-content;
+        }
+
+        .cf {
+            display: block;
+            width: 100%;
+        }
+        .ourinfos h3,
+    h2 {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Noto Kufi Arabic", sans-serif;
+        padding-right : 10px;
+    }
+
+    .ourinfos p {
+        padding-right : 10px;
+        font-size: 14px;
+        font-family: "Noto Kufi Arabic", sans-serif;
+    }
+    .boxfaild h3{
+        font-size : 14px;
+    }
+ 
+
+
+    }
+
+
     </style>
 </head>
 
 <body>
     <h1><?php include '../header/header.php' ;?></h1>
+    <?php include "../whatsapp.html" ;?>
 
     <div class="allcontactus">
 
         <div class="contactus">
             <form class="cf" action="../mail/sendMail.php" method="POST">
+            <?php if (isset($_GET['mailsuccess'])): ?>
+                <div class="boxsuccess">
+                    <h3>تم إرسال البريد الإلكتروني بنجاح</h3>
+                </div>
 
+                <?php endif; ?>
+                <?php if (isset($_GET['mailfaild'])): ?>
+                <div class="boxfaild">
+                    <h3>فشل في إرسال بريدك الإلكتروني، يرجى كتابة بريد إلكتروني صحيح</h3>
+                </div>
+
+                <?php endif; ?>
 
                 <div class="half left cf">
                     <label for="input-email">البريد الإلكتروني</label>
@@ -168,15 +222,15 @@
                 </div>
                 <div class="half cf">
                     <label for="input-message">الرسالة</label>
-                    <textarea rows="5" cols="33" id="input-message" placeholder="الرسالة" name="message"></textarea>
+                    <textarea rows="3" cols="33" id="input-message" placeholder="الرسالة" name="message"></textarea>
                 </div>
                 <input type="submit" value="أرسل طلبك الأن" id="input-submit" name="mailing">
-                <?php if (isset($_GET['mailsuccess'])): ?>
+                <!-- <?php if (isset($_GET['mailsuccess'])): ?>
                 <div class="boxsuccess">
                     <h3>تم إرسال البريد الإلكتروني بنجاح</h3>
                 </div>
 
-                <?php endif; ?>
+                <?php endif; ?> -->
             </form>
         </div>
         <div class="ourinfos">

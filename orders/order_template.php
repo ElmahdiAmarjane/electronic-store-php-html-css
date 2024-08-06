@@ -14,11 +14,12 @@
 <body>
 
     <div class="allproductSelected">
-        <div class="productImage">
+        <div class="productImage" id="productImage">
             <?php $imageSrc = !empty($product['images']) ? $product['images'][0]['src'] : ''; ?>
             <img src="<?php echo htmlspecialchars($imageSrc); ?>"
                 alt="<?php echo htmlspecialchars($product['name']); ?>">
             <div class="productdescription">
+               <p class="p-price"><?php echo htmlspecialchars($product['price']); ?> DH</p>
                 <p>⭐⭐⭐⭐⭐</p>
                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                 <p><?php echo htmlspecialchars(strip_tags($product['description'])); ?></p>
@@ -44,21 +45,33 @@
                     <input name="address" type="text" id="input-address" placeholder="العنوان الكامل والمدينة">
                 </div>
                 <div class="half cf">
-                    <label for="input-units">عدد الوحدات </label>
-                    <input name="nbr-units" type="number" id="input-units" placeholder="عدد الوحدات " value="1">
-                </div>
-                <div class="submitOrder">
+                <label for="input-units">عدد الوحدات</label>
+
+    <div class="input-container">
+        <button type="button" class="btn-decrease">-</button>
+        <input name="nbr-units" type="text" id="input-units" placeholder="عدد الوحدات" value="1">
+        <button type="button" class="btn-increase">+</button>
+    </div>
+</div>
+
+               <div class="truesubmitOrder">
                     <input name="productId" type="hidden" value="<?php echo $productId  ?>">
                     <input name="productTitle" type="hidden" value="<?php echo $product['name']?>">
-                    <input name=" submit" type="submit" value="أكمل طلبك الأن" id="submit">
+                    <input name="submit" type="submit" value="أكمل طلبك الأن" id="submit">
+                </div>
+                <div class="submitOrder">
+                    <!-- <input name="productId" type="hidden" value="<?php echo $productId  ?>"> -->
+                    <!-- <input name="productTitle" type="hidden" value="<?php echo $product['name']?>"> -->
+                    <input name="" type="button" value="أكمل طلبك الأن" id="submit2">
                 </div>
             </form>
             <div class="loading" id="loading" style="display: none;">
-                <img src="../img/Spinner@1x-0.4s-200px-200px.gif" alt="" srcset="">
+                <img src="../img/loading.gif" alt="" srcset="">
                 <h3>جاري الإرسال </h3>
             </div>
         </div>
-        <div class="moreImages">
+        <div class="moreImages" id="moreImages">
+
             <div class="titlemoreImages">
                 <h1> صور اخرى لنفس المنتج</h1>
             </div>
@@ -69,14 +82,15 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+         
 
         </div>
-        <div class="moreOrders">
+        <!-- <div class="moreOrders">
             <div class="titlemoreOrders">
                 <h1>المزيد من المنتجات ذات صلة </h1>
             </div>
-            <?php include './more_products.php'?>
-        </div>
+             include './more_products.php'  // for uncomment add php tag
+        </div> -->
     </div>
 
     <script>
@@ -145,6 +159,41 @@
                 });
         });
     });
+
+    ///://////////////////////////////////////
+    document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById('input-units');
+        const btnDecrease = document.querySelector('.btn-decrease');
+        const btnIncrease = document.querySelector('.btn-increase');
+
+        btnDecrease.addEventListener('click', () => {
+            // Get the current value and decrease it
+            let value = parseInt(input.value, 10);
+            if (value > 1) {
+                input.value = value - 1;
+            }
+        });
+
+        btnIncrease.addEventListener('click', () => {
+            // Get the current value and increase it
+            let value = parseInt(input.value, 10);
+            input.value = value + 1;
+        });
+    });
+
+///////////////////////////////::
+document.addEventListener('DOMContentLoaded', () => {
+        const submitButton = document.getElementById('submit2');
+
+        submitButton.addEventListener('click', () => {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 350,
+                behavior: 'smooth' // This makes the scroll smooth
+            });
+        });
+    });
+   
     </script>
 
 </body>

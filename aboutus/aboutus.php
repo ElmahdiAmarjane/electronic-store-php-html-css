@@ -1,4 +1,5 @@
 <?php include '../header/header.php' ?>
+<?php include "../whatsapp.html"; ?>
 <!DOCTYPE html>
 <html lang="ar">
 

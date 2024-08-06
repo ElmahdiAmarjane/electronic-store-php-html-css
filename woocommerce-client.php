@@ -13,7 +13,7 @@ function getWoocommerceClient(){
         ]
       );
       
-    //    print_r($woocommerce->get('products')); 
+        //print_r($woocommerce->get('products')); 
 }
 
 ?>

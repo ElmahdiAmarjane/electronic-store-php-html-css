@@ -1,41 +1,82 @@
+/*  */
+
+/* Style the container for the input and buttons */
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Style the input field */
+#input-units {
+  width: 100%; /* Adjust width as needed */
+  text-align: center;
+  margin: 0 10px;
+}
+
+/* Style the buttons */
+.btn-decrease, .btn-increase {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+/* Style for button hover effect */
+.btn-decrease:hover, .btn-increase:hover {
+  background-color: #0056b3;
+}
+
+
+
+/*  */
+
+
 .allproductSelected {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 160px;
   padding: 0 10px;
-  direction: rtl;
+  direction: ltr;
 }
 
 .productImage,
 .productSelected {
   width: 100%;
   max-width: 800px;
-  margin: 10px;
+  margin: 0 30px;
   height: max-content;
+ 
 }
 
 .productImage {
-  display: flex;
+  position: fixed;
+  text-align: center;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
+  right:0;
 }
 .productImage img {
-  width: 100%;
-  width: 80%;
-  height: 500px;
+  width: 70%;
+  height: 460px;
   border-radius: 8px;
 }
 
 .productSelected {
-  border: 2px solid #5223c2;
+  border: 2px solid #3398E3;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f94f;
   padding: 20px;
   height: max-content;
+  direction: rtl;
 }
 
 .productSelected h1 {
@@ -60,31 +101,20 @@
   width: 100%;
 }
 
-@media (min-width: 600px) {
-  .cf .left,
-  .cf .right {
-    width: calc(50% - 10px);
-  }
 
-  .cf .right {
-    margin-right: 20px;
-  }
-}
-
-input {
+.half input {
   width: 100%;
-  padding: 20px;
-  border: 2px solid #5223c2;
+  padding: 15px;
+  border: 2px solid #3398E3;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   box-sizing: border-box;
-
   font-family: "Noto Kufi Arabic", sans-serif;
   font-weight: bold;
   font-size: larger;
 }
 
-label {
+.half label {
   font-size: 14px;
   margin-bottom: 5px;
   display: block;
@@ -94,7 +124,7 @@ label {
 
 .submitOrder {
   position: fixed;
-  bottom: 0px;
+  bottom: 1px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -104,8 +134,8 @@ label {
   padding-top: 10px;
 }
 
-.submitOrder input[type="submit"] {
-  background: #5e12d8;
+.submitOrder input[type="button"] ,  .truesubmitOrder input[type="submit"] {
+  background: #3398E3;
   border: none;
   color: white;
   cursor: pointer;
@@ -114,7 +144,14 @@ label {
   border-radius: 8px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   width: 50%;
-  animation: vibrate 0.2s infinite;
+}
+  .truesubmitOrder input[type="submit"]{
+    animation: vibrate 0.2s infinite;
+  }
+.truesubmitOrder {
+  padding-top: 5px;
+  width: 100%;
+  text-align: center;
 }
 @keyframes vibrate {
   0% {
@@ -130,12 +167,13 @@ label {
   }
 }
 
-.submitOrder input[type="submit"]:hover {
-  background: #4a0da1;
+.submitOrder input[type="button"]:hover {
+  background: #3398E3
 }
 .moreOrders {
   width: 100%;
   margin-top: 100px;
+ 
 }
 .moreImages {
   margin-top: 50px;
@@ -148,6 +186,11 @@ label {
   font-family: "Noto Kufi Arabic", sans-serif;
   font-weight: bold;
 }
+.titlemoreImages  {
+  width: 50%;
+
+}
+
 .moreordresimages {
   display: flex;
   flex-wrap: wrap;
@@ -155,12 +198,13 @@ label {
   margin: 20px 0;
 }
 .moreProductImages {
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content:center
 }
 .moreProductImages .img {
-  width: 40%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +216,7 @@ label {
   
 }
 .moreProductImages .img img:hover {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   
 }
 
@@ -188,11 +232,14 @@ label {
   transform: translate(-50%, -50%);
   padding: 10px;
   font-size: 18px;
-  color: #5e12d8;
-  background-color: #fff; /* Optional: Add a background color */
-  border: 1px solid #5e12d8; /* Optional: Add a border */
+  color: #3398E3;
+  background-color: white; /* Optional: Add a background color */
+  border: 1px solid #3398E3; /* Optional: Add a border */
   border-radius: 8px; /* Optional: Add rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+   width: 400px;
+   height: 300px;
+   text-align:center;
 }
 .loading h3 {
   text-align: center;
@@ -206,13 +253,62 @@ label {
   font-weight: 600;
   font-size: 20px;
 }
-@media (max-width: 600px) {
+
+.productdescription .p-price{
+    color : green
+}
+
+
+
+
+@media (max-width: 900px) {
+
+  .allproductSelected {
+    margin-top: 30px;
+    padding: 0 ;
+    direction: rtl;
+    
+
+  }
+  .moreProductImages {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly
+  }
+  .moreProductImages .img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .productSelected {
+    border: 1px solid #dee0e2;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f94f;
+    padding: 5px 10px;
+    height: max-content;
+    width: 100%;
+    margin: 0 10px;
+  }
+  .productSelected h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .cf .left,
+  .cf .right {
+    width:100%;
+  }
+
+  .cf .right {
+    margin-right: 0px;
+  }
   .moreordresimages img {
     width: 100%;
   }
-  .loading {
-    padding: 5px;
-  }
+
   .productImage img {
     width: 100%;
     width: 60%;
@@ -220,18 +316,84 @@ label {
     border-radius: 8px;
   }
   .productImage {
+    position:static;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
     margin-top: 20px;
   }
-  .loading h3 {
-    text-align: center;
-    font-family: "Noto Kufi Arabic", sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-  }
+ 
   .productdescription {
     direction: ltr;
     text-align: center;
     font-weight: 300;
     font-size: 15px;
   }
+  .half input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #3398E3;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: 200;
+    font-size: larger;
+  }
+  
+ .half label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: bold;
+  }
+  .titlemoreOrders h1,
+.titlemoreImages h1 {
+  text-align: center;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.submitOrder input[type="button"] , .truesubmitOrder input[type="submit"]  {
+  background: #3398E3;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+
+.submitOrder {
+  padding-top: 5px;
+}
+.truesubmitOrder {
+  padding-top: 5px;
+  width: 100%;
+}
+
+.loading {
+  width: 300px;
+  height : 300px;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+.loading h3 {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.loading img {
+   width: 100px;
+}
+
 }

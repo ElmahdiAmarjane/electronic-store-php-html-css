@@ -158,9 +158,9 @@
     <div class="slide-container">
 
         <div class="slides">
-            <img src="/mahal/img/p1.jpg" class="active">
-            <img src="/mahal/img/p2.jpg">
-            <img src="/mahal/img/p3.jpg">
+            <img src="/mahal/img/banner/la-caisse-banner.jpg" class="active">
+            <img src="/mahal/img/banner/pc-bureau-banner.jpg">
+            <img src="/mahal/img/banner/img-guiensha.jpg">
 
         </div>
 

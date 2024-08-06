@@ -1,3 +1,5 @@
+<?php include "../whatsapp.html";?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +63,12 @@
             background-color: #45a049;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 900px) {
+            
+        .allthaknspage {
+            max-width: 80%;
+            width: 350px;
+        }
             .allthaknspage h1 {
                 font-size: 1.5em;
             }

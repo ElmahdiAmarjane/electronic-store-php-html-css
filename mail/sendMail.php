@@ -44,6 +44,7 @@ $mail = new PHPMailer(true);
         header("Location: ../contactus/contactus.php?mailsuccess=true"); // Corrected the header function
         exit(); // Ensure script stops executing after redirect
         } catch (Exception $e) {
+          header("Location: ../contactus/contactus.php?mailfaild=true"); 
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
   }

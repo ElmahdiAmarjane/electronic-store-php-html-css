@@ -1,21 +1,8 @@
-<!-- <?php
-// some-other-file.php
-
-// include 'woocommerce-client.php';
-
-// $woocommerce = getWooCommerceClient();
-
-// try {
-//     $products = $woocommerce->get('products');
-//     // Process the $products array here
-// } catch (Exception $e) {
-//     echo 'Error: ' . $e->getMessage();
-//     $products = []; // Initialize as empty array to avoid errors in the rest of the code
-// }
-?> -->
 <?php
 // Include WooCommerce Client
-include 'woocommerce-client.php';
+include "../header/header.php";
+include "../whatsapp.html";
+include '../woocommerce-client.php';
 
 $woocommerce = getWooCommerceClient();
 
@@ -43,6 +30,9 @@ try {
     echo 'Error: ' . $e->getMessage();
     $products = []; // Initialize as empty array to avoid errors in the rest of the code
 }
+
+
+
 ?>
 
 
@@ -70,9 +60,9 @@ body {
     margin-top: 50px;
     margin: auto;
     background-color: #FFF9ED;
-    direction :rtl;
-}
+    direction:rtl;
 
+}
 .empty-item {
     width: 350px; /* Same width as your .card elements */
     height: 600px; /* Same height as your .card elements */
@@ -80,16 +70,16 @@ body {
     visibility: hidden; /* Makes the item invisible while maintaining its space */
 }
 
-
-.titleAllProducts {
-    width: 100%;
-    margin-top: 100px;
+.titleAllProducts-more {
+    width: 80%;
+    margin:auto;
+    margin-top: 140px;
 }
 
-.titleAllProducts h2 {
+.titleAllProducts-more h2 {
     font-size: 30px;
     font-weight: bold;
-    text-align: center;
+    text-align: end;
     font-family: "Noto Kufi Arabic", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -182,7 +172,7 @@ body {
     /* Center horizontally */
     align-items: center;
     /*background-color: green;*/
-    border: 5px solid #3398E3;
+    border: 5px solid #6EACDA;
     border-radius: 40px;
     margin-bottom: 20px;
 }
@@ -202,7 +192,7 @@ body {
     outline: 0;
     padding: 12px ;
     color: white;
-    background-color: #3398E3;
+    background-color: #6EACDA;
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -233,29 +223,29 @@ body {
 
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 
-    .titleAllProducts {
-        margin-top: 0;
+    .titleAllProducts-more {
+        margin-top: 90px;
     }
 
     .allproducts {
         width: 100%;
-        margin-top: 10px;
+        margin-top: 5px;
         /* background-color: red; */
     }
 
-    .titleAllProducts h2 {
-        font-size: 20px;
+    .titleAllProducts-more h2 {
+        font-size: 16px;
         margin-bottom: 0px;
     }
 
     .card {
         width: 50%;
-        height: 360px;
-        margin: 0;
+        height: 450px;
+        margin: auto;
         padding: 10px;
-        margin-bottom: 0px;
+        margin-bottom: 20px;
     }
 
 
@@ -263,7 +253,7 @@ body {
 
     .card h1 {
         /* padding-bottom: 10px; */
-        font-size: 15px;
+        font-size: 20px;
 
     }
 
@@ -272,12 +262,12 @@ body {
     }
 
     .price {
-        font-size: 15px;
-        padding-top: 10px;
+        font-size: 16px;
+        padding-top: 15px;
     }
 
     .oldPrice {
-        font-size: 10px;
+        font-size: 14px;
         padding-top: 10px;
     }
 
@@ -302,18 +292,18 @@ body {
     }
 
     .divproductimg {
-        max-height: 160px;
-        min-height: 160px;
-        border: 2px solid #6EACDA;
+        max-height: 200px;
+        min-height: 200px;
+        border: 3px solid #6EACDA;
         border-radius: 40px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
 
 
     .divproductprice {
         width: 100%;
-        height: 56px;
+        height: 80px;
         /* background-color: yellow; */
 
     }
@@ -327,16 +317,12 @@ body {
         font-size: 16px;
         border-radius: 3px;
     }
-
-    .card .stars{
-        font-size: 10px;
-    }
 }
 </style>
 
 <body>
-    <div class="titleAllProducts">
-        <h2>جميع المنتجات</h2>
+    <div class="titleAllProducts-more">
+        <h2>المزيد/جميع المنتجات</h2>
     </div>
     <div class="allproducts">
         <?php if (!empty($products)): ?>
@@ -356,7 +342,7 @@ body {
                 <h1><?php echo htmlspecialchars($product->name); ?></h1>
             </div>
 
-            <p class="stars">⭐⭐⭐⭐⭐</p>
+            <p class="stars">⭐⭐⭐⭐⭐ </p>
             <div class="divproductprice">
                 <p class="oldPrice">
                     <?php echo !empty($product->regular_price) ? htmlspecialchars($product->regular_price) . ' DH' : ''; ?>
@@ -377,10 +363,11 @@ body {
         <p>No products available.</p>
         <?php endif; ?>
     </div>
-     <div class ="showmorediv">
-          <a href="/mahal/showmore/showmore.php">استعراض المزيد</a>
-     </div>
-    <script>
+     <!-- <div class ="showmorediv">
+          <a href="">استعراض المزيد</a>
+     </div> -->
+
+ <script>
        function adjustLastRow() {
     const container = document.querySelector('.allproducts');
     const items = Array.from(container.children);
@@ -406,6 +393,9 @@ window.addEventListener('load', adjustLastRow);
 window.addEventListener('resize', adjustLastRow);
 
     </script>
+  
 </body>
 
 </html>
+<?php   include "../banner/banner.php"; ?>
+<?php   include "../footer/footer.html"; ?>

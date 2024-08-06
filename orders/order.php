@@ -1,7 +1,7 @@
 <?php
 include '../woocommerce-client.php';
 include "../header/header.php";
-
+include "../whatsapp.html";
 if (isset($_GET['id'])) {
     $productId = htmlspecialchars($_GET['id']);
   

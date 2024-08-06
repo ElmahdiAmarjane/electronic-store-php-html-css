@@ -21,11 +21,27 @@
     height: 60%;
     border-radius: 20px;
 }
+@media screen and (max-width: 700px) {
+    .banner-container {
+    width: 98%;
+    height: 300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.banner-container img {
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+
+}
 </style>
 
 <body>
     <div class="banner-container">
-        <img src="img/banner1.png" alt="">
+        <img src="/mahal/img/banner/imp-guiensha.jpg" alt="">
     </div>
 </body>
 
