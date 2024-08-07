@@ -1,6 +1,6 @@
 
 :root {
-    --bgcolor: #5e12d8;
+    --bgcolor: #FFF9ED;
 }
 
 * {
@@ -16,12 +16,12 @@ body {
 
 .page-header-nav {
     background-color: var(--bgcolor);
-    padding: 1.3rem;
+    padding: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 50px;
+    top: 100px;
     /* Default top position */
     width: 100%;
     z-index: 100;
@@ -35,20 +35,32 @@ body {
 }
 
 .logo {
+    width: 30%;
     color: white;
-    align-self: center;
-    margin-left: 3rem;
-    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.nav-bar {
+    width: 30%;
+    /* border: 1px solid green; */
+}
+
+.header-search {
+    width: 30%;
+    border: 1px solid black;
 }
 
 .nav-bar a {
-    color: white;
-    padding: 1.5rem;
+    color: #3398E3;
+    padding: 2rem;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.2rem;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     font-family: "Noto Kufi Arabic", sans-serif;
 }
 
@@ -58,48 +70,126 @@ body {
     display: none;
 }
 
-button {
-    font-size: 1rem;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 0.9rem;
-}
+
 
 .centered-text {
     text-align: center;
-    font-weight: bold;
+
     color: #ffffff;
-    background-color: #5e12d8;
-    height: 60px;
-    padding-top: 20px;
-    font-size: 10px;
+    background-color: #3398E3;
+    height: 70px;
+    /* padding: 20px; */
     font-family: "Noto Kufi Arabic", sans-serif;
-    word-spacing: 5px
+    word-spacing: 5px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
 }
 
-@media screen and (max-width: 700px) {
+.centered-text h3 {
+    font-weight: light;
+    font-size: 14px;
+}
+
+.header-actions-btn {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-actions-btn svg,
+.header-actions-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.searchbar {
+    position :fixed;
+    z-index:20;
+      background-color : #3398E3;
+      width:100%;
+      height : 60px;
+      margin-top:138px;
+      display:none;
+      align-items:center;
+      justify-content : center;
+      padding:2px;
+      
+     
+}
+.searchbar input{
+      background-color : white;
+      width:60%;
+      height : 90%;
+      direction:rtl;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      padding-right:10px;
+      border:none;
+      outline:none;
+}
+
+@media screen and (max-width: 1000px) {
+    .searchbar {
+      background-color : #3398E3;
+      width:100%;
+      height : 60px;
+      margin-top:60px;
+      display:none;
+      align-items:center;
+      justify-content : center;
+      
+     
+}
+.searchbar input{
+      background-color : white;
+      width:90%;
+      height : 90%;
+      direction:rtl;
+      font-family: "Noto Kufi Arabic", sans-serif;
+      padding-left:10px;
+      border:none;
+      outline:none;
+}
     .centered-text {
-        height: 40px;
+        height: 50px;
         padding-top: 5px;
-        font-weight: lighter;
-        font-size: 8px;
+        margin-top: 0px;
+
+    }
+
+    .centered-text h3 {
+        font-weight: light;
+        font-size: 12px;
     }
 
     .nav-bar {
         display: none;
         position: absolute;
-        top: 3.7rem;
+        top: 3rem;
         left: 0;
         width: 100%;
         background-color: var(--bgcolor);
-        text-align: center;
+        text-align: end;
+        height:200px; 
+
+
     }
 
-    .nav-bar.responsive {
-        display: block;
+    .responsive-nav {
+        display: flex;
+        flex-direction:column;  
+       
+        
     }
-
     .nav-bar a {
+    padding: 1rem;
+   
+
+}
+
+    .nav-bar .divmenu {
         display: block;
     }
 
@@ -108,17 +198,40 @@ button {
         z-index: 1;
     }
 
-    button {
-        padding: 0.4rem;
-    }
 
-    .logo {
-        font-size: 1.4rem;
-    }
+
+
+    .logo {}
 
     .page-header-nav {
-        top: 42px;
-        /* Default top position */
+        top: 50px;
+        padding: 0.5rem;
 
+        /* Default top position */
+    }
+
+    .header-actions-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-actions-btn {}
+
+    .divmenu {
+        width: 30%;
+        justify-content: end;
+        display: flex;
+        /* align-items: flex-start; */
+        align-items: center;
+        height: 40px;
+    }
+
+    .divmenu .menu-icon {
+        height: 20px;
+    }
+
+    .divmenu .menu-icon img {
+        height: 20px;
+        width: 25px;
     }
 }
