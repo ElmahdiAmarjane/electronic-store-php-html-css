@@ -16,7 +16,7 @@ body {
 
 .page-header-nav {
     background-color: var(--bgcolor);
-    padding: 3rem;
+    padding: 1.9rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +42,9 @@ body {
     text-align: center;
     justify-content: center;
     /* border: 1px solid red; */
+}
+.logo a img {
+     width:180px;
 }
 
 .nav-bar {
@@ -201,11 +204,13 @@ body {
 
 
 
-    .logo {}
-
+    .logo a img {
+        width:100px;
+   }
+   
     .page-header-nav {
         top: 50px;
-        padding: 0.5rem;
+        padding: 0.4rem;
 
         /* Default top position */
     }
@@ -222,12 +227,13 @@ body {
         justify-content: end;
         display: flex;
         /* align-items: flex-start; */
-        align-items: center;
-        height: 40px;
+         align-items: center; 
+        height: 0px;
     }
 
     .divmenu .menu-icon {
-        height: 20px;
+        /* height: 20px; */
+        
     }
 
     .divmenu .menu-icon img {

@@ -32,7 +32,7 @@
             </div>
 
             <div class="logo">
-                <a href="/mahal/index.php"> <img src="/mahal/img/lenovologo.png" alt="" width="100px"></a> 
+                <a href="/mahal/index.php"> <img src="/mahal/img/logodsc.png" alt="" ></a> 
             </div>
             <div class="divmenu"  onclick="onMenuClick()">
                 <div id="menu-icon" class="menu-icon" >
@@ -65,7 +65,7 @@
     window.addEventListener('scroll', function() {
         var headerNav = document.querySelector('.page-header-nav');
         const div = document.getElementById('toggleDiv');
-        if (window.scrollY > 80) {
+        if (window.scrollY > 40) {
             headerNav.classList.add('sticky');
             if(window.innerWidth > 800){
                 div.style.marginTop = '36px';
